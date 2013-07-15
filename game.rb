@@ -2,8 +2,9 @@ require 'gosu'
 
 class GameWindow < Gosu::Window
   def initialize
-    super 640, 480, false
+    super(640, 480, false)
     self.caption = "Gosu Tutorial Game"
+
     @background_image = Gosu::Image.new(self, "media/Space.png", true)
 
     @player = Player.new(self)
@@ -14,21 +15,18 @@ class GameWindow < Gosu::Window
     if button_down? Gosu::KbLeft or button_down? Gosu::GpLeft then
       @player.turn_left
     end
-
     if button_down? Gosu::KbRight or button_down? Gosu::GpRight then
       @player.turn_right
     end
-
     if button_down? Gosu::KbUp or button_down? Gosu::GpButton0 then
       @player.accelerate
     end
-
     @player.move
   end
 
   def draw
     @player.draw
-    @background_image.draw(0, 0, 0)
+    @background_image.draw(0, 0, 0);
   end
 
   def button_down(id)
@@ -40,7 +38,7 @@ end
 
 class Player
   def initialize(window)
-    @image = Gosu::Image.new(window, "media/Starfighter.bmp", false)
+    @image = Gosu::Image.new(window, "media/spaceship.png", false)
     @x = @y = @vel_x = @vel_y = @angle = 0.0
     @score = 0
   end
@@ -77,5 +75,13 @@ class Player
   end
 end
 
+
 window = GameWindow.new
 window.show
+
+
+
+
+
+
+
